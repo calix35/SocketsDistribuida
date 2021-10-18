@@ -27,11 +27,3 @@ public class Client{
 
     }
 }
-
-/*
-    La clase Socket:
-        - Socket(ip,port):
-            ip: la direccion ip de la computadora donde se esta ejecutando el servidor (si es local, se puede poner localhost)
-            port: El puerto donde esta trabajando el servidor
-
-*/

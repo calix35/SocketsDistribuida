@@ -53,12 +53,3 @@ public class ClientConnection extends Thread{
 }
 
 
-/*
-               C1
-                |
-                |
-                |
-    C3 ------  Server   -------- C2
-
-
-*/
