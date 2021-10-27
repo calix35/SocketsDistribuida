@@ -17,7 +17,7 @@ public class Table{
         this.tableName = name;        
     }
 
-    public void add(Usuario user){
+    public void add(Object obj){
         try {
             FileInputStream file = null;
             boolean existe = true;
@@ -33,7 +33,7 @@ public class Table{
                 oos = new AppendObjectOutputStream(fileo);
             else
                 oos = new ObjectOutputStream(fileo);
-            oos.writeObject(user);  
+            oos.writeObject(obj);  
             oos.close(); 
             fileo.close();     
         } catch (Exception e) {
@@ -41,8 +41,8 @@ public class Table{
         }       
     }
 
-    public Usuario get(int index){
-        Usuario user = null;
+    public Object get(int index){
+        Object obj = null;
         try {            
             FileInputStream file = null;
             ObjectInputStream ois = null;
@@ -50,8 +50,8 @@ public class Table{
             ois = new ObjectInputStream(file);
             int count = 0;
             while(count<=index){
-                user = (Usuario)ois.readObject();
-                if(user==null) 
+                obj = ois.readObject();
+                if(obj==null) 
                     break;
                 count++;
             }
@@ -60,7 +60,7 @@ public class Table{
         } catch (Exception e) {
             //TODO: handle exception
         }      
-        return user;
+        return obj;
     }
 
     public int size(){
@@ -88,7 +88,7 @@ public class Table{
         /*usuarios.add(new Usuario("alan","1234","Juan",1));
         usuarios.add(new Usuario("alan","1234","Raul",1));*/
 
-        Usuario user = usuarios.get(3);
+        Usuario user = (Usuario)usuarios.get(3);
         System.out.println(user.getNombre());
         
         /*Usuario user = usuarios.get(1);

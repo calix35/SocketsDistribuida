@@ -24,8 +24,8 @@ public class ModeloUsuariosPersistente{
         //metodo size, darme el numero de elementos de la lista
         for(int i=0;i<usuarios.size();i++){//Recorriendo la lista
             //El metodo get, me da el elemento que esta en la posicion i de la lista
-            if(usuarios.get(i).getUser().equals(user) && usuarios.get(i).getPass().equals(pass)){
-                return usuarios.get(i);
+            if(((Usuario)usuarios.get(i)).getUser().equals(user) && ((Usuario)usuarios.get(i)).getPass().equals(pass)){
+                return (Usuario)usuarios.get(i);
             }
         }
         return null;
@@ -37,7 +37,7 @@ public class ModeloUsuariosPersistente{
 
     public boolean buscarUsuario(String user){
         for(int i=0; i<this.usuarios.size(); i++){
-            if(this.usuarios.get(i).getUser().equals(user)){
+            if(((Usuario)usuarios.get(i)).getUser().equals(user)){
                 return true;
             }
         }
